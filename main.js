@@ -26,7 +26,7 @@ const liuKang = {
     }
 }
 
-function createPlayer() {
+function createPlayer(player, name, life) {
     const $root = document.querySelector('.arenas');
     const $player = document.createElement('div');
     const $progressBar = document.createElement('div');
@@ -35,7 +35,7 @@ function createPlayer() {
     const $character = document.createElement('div');
     const $img = document.createElement('img');
 
-    $player.classList.add('player1');
+    $player.classList.add(player);
     $progressBar.classList.add('progressBar');
     $life.classList.add('life');
     $name.classList.add('name');
@@ -47,12 +47,16 @@ function createPlayer() {
     $progressBar.appendChild($name);
     $character.appendChild($img);
 
-    $name.innerText = 'Liu Kang';
+    $name.innerText = name;
+    $life.innerText = life;
     $img.src = 'http://reactmarathon-api.herokuapp.com/assets/liukang.gif';
 
     $life.style.width = '100%';
 
     $root.appendChild($player);
 }
+
+createPlayer('player1', 'Subzero', 100);
+createPlayer('player2', 'Liu Kang', 80);
 
 
